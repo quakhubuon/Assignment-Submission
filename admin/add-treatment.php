@@ -4,15 +4,16 @@
     include("../connection.php");
 
     if(isset($_GET["add"])){
-        foreach ($_GET["medication"] as $choice) {
-            $doctor = $_GET["doctor"];
-            $inpatient = $_GET["inpatient"];
-            $startdate = $_GET["startdate"];
-            $enddate = $_GET["enddate"];
-            $result = $_GET["result"];
-            $sql = "INSERT INTO treatment (E_Unique_code, P_ID, M_Unique_code, Result, `Start_date`, End_date) VALUES ('$doctor', '$inpatient', '$choice', '$result', '$startdate', '$enddate');";
-            $result = executeQuery($sql);
-        }     
+        foreach ($_GET["doctor"] as $doctor) {
+            foreach ($_GET["medication"] as $choice) {
+                $inpatient = $_GET["inpatient"];
+                $startdate = $_GET["startdate"];
+                $enddate = $_GET["enddate"];
+                $result = $_GET["result"];
+                $sql = "INSERT INTO treatment (E_Unique_code, P_ID, M_Unique_code, Result, `Start_date`, End_date) VALUES ('$doctor', '$inpatient', '$choice', '$result', '$startdate', '$enddate');";
+                $result = executeQuery($sql);
+            }     
+        }
         header("location: treatment.php");
     }
 
@@ -195,7 +196,7 @@
                                             $sql="SELECT * FROM doctor";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="doctor" class="select">
+                                        <select name="doctor[]" class="select" multiple>
                                             <option value="">-- Choose doctor --</option>
                                             <?php
                                             if (mysqli_num_rows($result) > 0) {

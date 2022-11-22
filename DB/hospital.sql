@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2022 at 10:06 PM
+-- Generation Time: Nov 22, 2022 at 04:44 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -86,7 +86,9 @@ CREATE TABLE `doctor` (
 INSERT INTO `doctor` (`ID`, `Unique_code`, `First_name`, `Last_name`, `DoB`, `Gender`, `Address`, `Start_date`, `Phone_number`, `Related_name`, `Degree_year`, `D_Unique_code`) VALUES
 (0, 'DR0020', 'Nguyen ', 'A', '2022-11-05', 'male', 'Distric 1', '2022-11-05', '1234567890', 'Surgeon', 3, 48),
 (20, 'DR0021', 'Tran ', 'B', '2022-11-05', 'female', 'Distric 2', '2022-11-05', '951238710', 'Psychologist', 2, 48),
-(21, 'DR0022', 'Nguyen', 'P', '2022-11-07', 'female', 'Distric 11', '2022-11-07', '987653214', 'Surgeon', 3, 49);
+(21, 'DR0022', 'Nguyen', 'P', '2022-11-07', 'female', 'Distric 11', '2022-11-07', '987653214', 'Surgeon', 3, 49),
+(22, 'DR0023', 'Nguyen ', 'Z', '2022-11-21', 'female', 'Distric 10', '2022-11-21', '113', 'Psychologist', 4, 49),
+(23, 'DR0024', 'Tran ', 'S', '2022-11-21', 'male', 'Distric 4', '2022-11-21', '112', 'surgeon', 127, 49);
 
 --
 -- Triggers `doctor`
@@ -126,16 +128,6 @@ CREATE TABLE `examination` (
   `Fee` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `examination`
---
-
-INSERT INTO `examination` (`E_Unique_code`, `P_ID`, `M_Unique_code`, `Examination_date`, `The_next_expiration_date`, `Diagnois`, `Fee`) VALUES
-(0, 87, 19, '30/10/2022', '16/11/2022', 'Ho', 18),
-(0, 90, 18, '01/03/2001', '06/11/2022', 'Sot', 21),
-(20, 87, 20, '01/11/2022', '21/11/2022', 'Lao', 21),
-(21, 87, 20, '01/11/2022', '21/11/2022', 'Lao', 21);
-
 -- --------------------------------------------------------
 
 --
@@ -153,7 +145,9 @@ CREATE TABLE `id_value_doc` (
 INSERT INTO `id_value_doc` (`id`) VALUES
 (20),
 (21),
-(22);
+(22),
+(23),
+(24);
 
 -- --------------------------------------------------------
 
@@ -235,7 +229,7 @@ CREATE TABLE `inpatient` (
 --
 
 INSERT INTO `inpatient` (`ID`, `Unique_code`, `First_name`, `Last_name`, `type`, `DoB`, `Gender`, `Address`, `Phone_number`, `Date_of_admission`, `Diagnois`, `Sickroom`, `Date_of_discharge`, `Fee`, `status`) VALUES
-(88, 'IP000000089', 'Nguyen', 'K', 'IP', '04/04/2003', 'male', 'Distric 6', '9874563210', '28/12/2020', 'Ho', 'A001', '08/06/2021', 10, 'unrecovery'),
+(88, 'IP000000089', 'Nguyen', 'K', 'IP', '04/04/2003', 'male', 'Distric 6', '9874563210', '28/12/2020', 'Ho', 'A001', '08/06/2021', 10, 'recovered'),
 (89, 'IP000000090', 'Nguyen', 'L', 'IP', '30/04/2003', 'male', 'Distric 1', '9874563210', '16/06/2021', 'Lao', 'A005', '19/01/2022', 30, 'recovered'),
 (92, 'IP000000093', 'Nguyen', 'I', 'IP', '12/02/2004', 'male', 'Distric 11', '123456712', '01/11/2022', 'Sot', 'A002', '02/11/2022', 21, 'recovered'),
 (93, 'IP000000094', 'Tran', 'E', 'IP', '30/01/2001', 'male', 'Distric 9', '123412345', '01/11/2022', 'Ho', '', '05/11/2022', 5, 'unrecovery');
@@ -421,17 +415,6 @@ CREATE TABLE `treatment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `treatment`
---
-
-INSERT INTO `treatment` (`E_Unique_code`, `P_ID`, `M_Unique_code`, `Result`, `Start_date`, `End_date`) VALUES
-(0, 88, 21, 'Ok', '16/05/2022', '06/11/2022'),
-(0, 89, 18, 'Ok', '10/05/2021', '02/11/2022'),
-(20, 93, 20, 'Ok', '01/11/2022', '03/11/2022'),
-(21, 89, 21, 'Ok', '02/11/2022', '30/11/2022'),
-(21, 92, 18, 'Sot', '31/10/2022', '02/11/2022');
-
---
 -- Indexes for dumped tables
 --
 
@@ -572,7 +555,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `id_value_doc`
 --
 ALTER TABLE `id_value_doc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `id_value_nur`
