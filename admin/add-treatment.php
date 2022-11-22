@@ -196,7 +196,7 @@
                                             $sql="SELECT * FROM doctor";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="doctor[]" class="select" multiple>
+                                        <select name="doctor[]" class="select" multiple required>
                                             <option value="">-- Choose doctor --</option>
                                             <?php
                                             if (mysqli_num_rows($result) > 0) {
@@ -215,7 +215,7 @@
                                             $sql="SELECT * FROM inpatient";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="inpatient" class="select">
+                                        <select name="inpatient" class="select" required>
                                             <option value="">-- Choose patient --</option>
                                             <?php
                                             if (mysqli_num_rows($result) > 0) {
@@ -233,7 +233,8 @@
                                     <div class="form-group">
                                         <label>Start Date</label>
                                         <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker" name="startdate">
+                                            <input type="text" class="form-control datetimepicker" name="startdate"
+                                                required>
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +242,8 @@
                                     <div class="form-group">
                                         <label>End Date</label>
                                         <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker" name="enddate">
+                                            <input type="text" class="form-control datetimepicker" name="enddate"
+                                                required>
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +256,7 @@
                                             $sql="SELECT * FROM medication";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="medication[]" class="select" multiple>
+                                        <select name="medication[]" class="select" multiple required>
                                             <option value="">-- Choose patient --</option>
                                             <?php
                                             if (mysqli_num_rows($result) > 0) {
@@ -270,7 +272,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Result</label>
-                                <textarea cols="30" rows="4" class="form-control" name="result"></textarea>
+                                <textarea cols="30" rows="4" class="form-control" name="result" required></textarea>
                             </div>
                             <div class="m-t-20 text-center">
                                 <button name="add" class="btn btn-primary submit-btn">Create Treatment</button>

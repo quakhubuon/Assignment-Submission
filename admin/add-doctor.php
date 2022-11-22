@@ -205,20 +205,20 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>First Name <span class="text-danger">*</span></label>
-                                        <input class="form-control" type="text" name="fname">
+                                        <input class="form-control" type="text" name="fname" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input class="form-control" type="text" name="lname">
+                                        <input class="form-control" type="text" name="lname" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker" name="dob">
+                                            <input type="text" class="form-control datetimepicker" name="dob" required>
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +226,8 @@
                                     <div class="form-group">
                                         <label>Start Date</label>
                                         <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker" name="startdate">
+                                            <input type="text" class="form-control datetimepicker" name="startdate"
+                                                required>
                                         </div>
                                     </div>
                                 </div>
@@ -235,7 +236,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Related name</label>
-                                                <input type="text" class="form-control" name="relatedname">
+                                                <input type="text" class="form-control" name="relatedname" required>
                                             </div>
                                         </div>
                                     </div>
@@ -245,7 +246,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" name="address">
+                                                <input type="text" class="form-control" name="address" required>
                                             </div>
                                         </div>
                                     </div>
@@ -255,7 +256,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Phone</label>
-                                                <input type="text" class="form-control" name="phone">
+                                                <input type="text" class="form-control" name="phone" required>
                                             </div>
                                         </div>
                                     </div>
@@ -263,7 +264,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Degree Year</label>
-                                        <input class="form-control" type="number" name="degreeyear">
+                                        <input class="form-control" type="number" name="degreeyear" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
@@ -290,7 +291,7 @@
                                             $sql="SELECT * FROM department";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="room" class="select floating">
+                                        <select name="room" class="select floating" required>
                                             <option value="">-- Choose department --</option>
                                             <?php
                                                 if (mysqli_num_rows($result) > 0) {

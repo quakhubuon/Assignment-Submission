@@ -355,7 +355,7 @@
                         <form method="get">
                             <div class="form-group">
                                 <label>Department Name</label>
-                                <input name="name" class="form-control" type="text">
+                                <input name="name" class="form-control" type="text" required>
                             </div>
                             <div class="m-t-20 text-center">
                                 <button name="add" class="btn btn-primary submit-btn">Create Department</button>

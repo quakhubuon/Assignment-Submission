@@ -198,7 +198,7 @@
                                             $sql="SELECT * FROM doctor";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="doctor[]" class="select" multiple>
+                                        <select name="doctor[]" class="select" multiple required>
                                             <option value="">-- Choose doctor --</option>
                                             <?php
                                             if (mysqli_num_rows($result) > 0) {
@@ -217,7 +217,7 @@
                                             $sql="SELECT * FROM outpatient";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="inpatient" class="select">
+                                        <select name="inpatient" class="select" required>
                                             <option value="">-- Choose patient --</option>
                                             <?php
                                             if (mysqli_num_rows($result) > 0) {
@@ -256,7 +256,7 @@
                                             $sql="SELECT * FROM medication";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="medication[]" class="select" multiple>
+                                        <select name="medication[]" class="select" multiple required>
                                             <option value="">-- Choose patient --</option>
                                             <?php
                                             if (mysqli_num_rows($result) > 0) {
@@ -272,10 +272,10 @@
                             </div>
                             <div class="form-group">
                                 <label>Diagnois</label>
-                                <textarea cols="30" rows="4" class="form-control" name="result"></textarea>
+                                <textarea cols="30" rows="4" class="form-control" name="result" required></textarea>
                             </div>
                             <label>Price</label>
-                            <input class="form-control" type="text" name="fee">
+                            <input class="form-control" type="text" name="fee" required>
                             <div class="m-t-20 text-center">
                                 <button name="add" class="btn btn-primary submit-btn">Create Examination</button>
                             </div>
