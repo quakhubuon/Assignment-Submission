@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 05:17 AM
+-- Generation Time: Nov 22, 2022 at 05:49 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -127,6 +127,14 @@ CREATE TABLE `examination` (
   `Diagnois` text NOT NULL,
   `Fee` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `examination`
+--
+
+INSERT INTO `examination` (`E_Unique_code`, `P_ID`, `M_Unique_code`, `Examination_date`, `The_next_expiration_date`, `Diagnois`, `Fee`) VALUES
+(21, 87, 18, '03/11/2022', '16/11/2022', 'Ho', 31),
+(22, 87, 18, '03/11/2022', '16/11/2022', 'Ho', 31);
 
 -- --------------------------------------------------------
 
@@ -413,6 +421,14 @@ CREATE TABLE `treatment` (
   `Start_date` text NOT NULL,
   `End_date` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `treatment`
+--
+
+INSERT INTO `treatment` (`E_Unique_code`, `P_ID`, `M_Unique_code`, `Result`, `Start_date`, `End_date`) VALUES
+(0, 93, 20, 'OK', '01/11/2022', '03/11/2022'),
+(20, 93, 20, 'OK', '01/11/2022', '03/11/2022');
 
 --
 -- Indexes for dumped tables
