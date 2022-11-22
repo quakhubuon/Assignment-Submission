@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 04:44 AM
+-- Generation Time: Nov 22, 2022 at 05:17 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -450,7 +450,6 @@ ALTER TABLE `doctorphone`
 -- Indexes for table `examination`
 --
 ALTER TABLE `examination`
-  ADD PRIMARY KEY (`E_Unique_code`,`P_ID`,`M_Unique_code`),
   ADD KEY `Pid` (`P_ID`),
   ADD KEY `Municode` (`M_Unique_code`),
   ADD KEY `E_Unique_code` (`E_Unique_code`);
@@ -537,7 +536,6 @@ ALTER TABLE `provider`
 -- Indexes for table `treatment`
 --
 ALTER TABLE `treatment`
-  ADD PRIMARY KEY (`E_Unique_code`,`P_ID`,`M_Unique_code`),
   ADD KEY `M_Unique_code` (`M_Unique_code`),
   ADD KEY `P_ID` (`P_ID`);
 
@@ -642,14 +640,6 @@ ALTER TABLE `nurse`
 --
 ALTER TABLE `nursephone`
   ADD CONSTRAINT `nursephone_ibfk_1` FOREIGN KEY (`E_Unique_code`) REFERENCES `nurse` (`ID`);
-
---
--- Constraints for table `treatment`
---
-ALTER TABLE `treatment`
-  ADD CONSTRAINT `treatment_ibfk_1` FOREIGN KEY (`E_Unique_code`) REFERENCES `doctor` (`ID`),
-  ADD CONSTRAINT `treatment_ibfk_2` FOREIGN KEY (`M_Unique_code`) REFERENCES `medication` (`M_Unique_code`),
-  ADD CONSTRAINT `treatment_ibfk_3` FOREIGN KEY (`P_ID`) REFERENCES `inpatient` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
