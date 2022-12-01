@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 05:49 AM
+-- Generation Time: Dec 01, 2022 at 04:45 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -32,6 +32,17 @@ USE `hospital`;
 CREATE TABLE `caring_nurse` (
   `Pa_ID` int(11) NOT NULL,
   `Caring nurse` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dean`
+--
+
+CREATE TABLE `dean` (
+  `E_ID` int(11) NOT NULL,
+  `D_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -428,7 +439,8 @@ CREATE TABLE `treatment` (
 
 INSERT INTO `treatment` (`E_Unique_code`, `P_ID`, `M_Unique_code`, `Result`, `Start_date`, `End_date`) VALUES
 (0, 93, 20, 'OK', '01/11/2022', '03/11/2022'),
-(20, 93, 20, 'OK', '01/11/2022', '03/11/2022');
+(20, 93, 20, 'OK', '01/11/2022', '03/11/2022'),
+(22, 92, 18, 'Ok', '01/01/2017', '06/12/2022');
 
 --
 -- Indexes for dumped tables
@@ -440,6 +452,13 @@ INSERT INTO `treatment` (`E_Unique_code`, `P_ID`, `M_Unique_code`, `Result`, `St
 ALTER TABLE `caring_nurse`
   ADD PRIMARY KEY (`Pa_ID`),
   ADD KEY `caring_nurse_ibfk_4` (`Caring nurse`);
+
+--
+-- Indexes for table `dean`
+--
+ALTER TABLE `dean`
+  ADD PRIMARY KEY (`D_ID`),
+  ADD KEY `E_ID` (`E_ID`);
 
 --
 -- Indexes for table `department`
@@ -604,6 +623,13 @@ ALTER TABLE `provider`
 --
 ALTER TABLE `caring_nurse`
   ADD CONSTRAINT `caring_nurse_ibfk_1` FOREIGN KEY (`Pa_ID`) REFERENCES `outpatient` (`ID`);
+
+--
+-- Constraints for table `dean`
+--
+ALTER TABLE `dean`
+  ADD CONSTRAINT `dean_ibfk_1` FOREIGN KEY (`E_ID`) REFERENCES `doctor` (`ID`),
+  ADD CONSTRAINT `dean_ibfk_2` FOREIGN KEY (`D_ID`) REFERENCES `department` (`Unique_code`);
 
 --
 -- Constraints for table `doctor`

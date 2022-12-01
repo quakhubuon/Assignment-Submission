@@ -256,7 +256,7 @@
                                             $sql="SELECT * FROM medication";
                                             $result = executeQuery($sql);                                           
                                         ?>
-                                        <select name="medication[]" class="select" multiple required>
+                                        <select name="medication[]" class="select" multiple>
                                             <option value="">-- Choose patient --</option>
                                             <?php
                                             if (mysqli_num_rows($result) > 0) {
